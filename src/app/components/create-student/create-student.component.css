@@ -8,19 +8,36 @@ form {
     border:3px  solid grey  ;
     border-radius: 10px;
     overflow: auto;
-    width:50%;
+    width:60%;
+    height:100%;
+    box-shadow:0px 0px 2px 2px black;
 
     
    
 }
 label {
     width:100px;
-    color:white;
-    margin-left:5px;
+   font-size: 15px;
+   text-shadow: 5px;
+    margin-left:10px;
+    color:black;
+    font-size: 20px;
+
     
    
 }
 input {
-    margin-top: 10px;
-    margin-right: 5px;
+    margin:10px;
+    /* margin-right:5px; */
+    box-shadow:0px 0px 5px 5px gray;
+    border-radius: 5px;
+    
+    
+    
+}
+input:hover {
+    background-color:yellow;
+}
+.err {
+    color:red;
 }

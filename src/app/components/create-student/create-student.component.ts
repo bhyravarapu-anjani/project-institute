@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl ,FormArray} from '@angular/forms';
+import { FormGroup,FormControl ,FormArray,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-student',
@@ -10,18 +10,18 @@ export class CreateStudentComponent {
 
   public studentForm:FormGroup=new FormGroup(
     {
-      name:new FormControl(),
-      gender:new FormControl(),
-      mobile:new FormControl(),
-      email:new FormControl(),
-      batch:new FormControl(),
+      name:new FormControl(null,[Validators.required]),
+      gender:new FormControl(null,[Validators.required]),
+      mobile:new FormControl(null,[Validators.required,Validators.min(1000000000),Validators.max(9999999999)]),
+      email:new FormControl(null,[Validators.required]),
+      batch:new FormControl(null,[Validators.required,Validators.min(2000),Validators.max(2030)]),
       address:new FormGroup(
         {
-          city:new FormControl(),
-          mandal:new FormControl(),
-          district:new FormControl(),
-          state:new FormControl(),
-          pincode:new FormControl()
+          city:new FormControl(null,[Validators.required]),
+          mandal:new FormControl(null,[Validators.required]),
+          district:new FormControl(null,[Validators.required]),
+          state:new FormControl(null,[Validators.required]),
+          pincode:new FormControl(null,[Validators.required])
 
         }
       ),
@@ -32,10 +32,10 @@ export class CreateStudentComponent {
       //nested form//
       company:new FormGroup(
         {
-          name:new FormControl(),
-          location:new FormControl(),
-          package:new FormControl(),
-          offerDate:new FormControl()
+          name:new FormControl(null,[Validators.required]),
+          location:new FormControl(null,[Validators.required]),
+          package:new FormControl(null,[Validators.required]),
+          offerDate:new FormControl(null,[Validators.required])
 
         }
       )
@@ -48,9 +48,9 @@ export class CreateStudentComponent {
     this.educationsFormArray.push(
       new FormGroup(
         {
-          qualification:new FormControl(),
-          year:new FormControl(),
-          percentages:new FormControl()
+          qualification:new FormControl(null,[Validators.required]),
+          year:new FormControl(null,[Validators.required]),
+          percentages:new FormControl(null,[Validators.required])
 
         }
       )
