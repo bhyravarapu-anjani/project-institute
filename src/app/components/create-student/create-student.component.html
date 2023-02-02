@@ -1,0 +1,91 @@
+<div class="parent d-flex justify-content-center align-items-center">
+    <form [formGroup]="studentForm">
+        <label>name</label>
+        <input type="text" formControlName="name">
+        <br>
+        <label>gender</label>
+        <input type="text" formControlName="gender">
+        <br>
+        <label>mobile</label>
+        <input type="text" formControlName="mobile">
+        <br>
+        <label>email</label>
+        <input type="text" formControlName="email">
+        <br>
+        <label>batch</label>
+        <input type="text" formControlName="batch">
+        <br>
+        <div formGroupName="address">
+            <label>city</label>
+            <input type="text" formControlName="city">
+            <br>
+            <label>mandal</label>
+            <input type="text" formControlName="mandal">
+            <br>
+            <label>district</label>
+            <input type="text" formControlName="district">
+            <br>
+            <label>state</label>
+            <input type="text" formControlName="state">
+            <br>
+            <label>pincode</label>
+            <input type="text" formControlName="pincode">
+            <br>
+
+        </div>
+        <div formArrayName="eduactions">
+            <div *ngFor="let eduaction of educationsFormArray.controls;let i=index">
+                <h1>education details:{{i+1}}</h1>
+                <div formGroupName="{{i}}">
+                    <label>qualification</label>
+                    <input type="text" formControlName="qualification">
+                    <br>
+                    <label>year</label>
+                    <input type="text" formControlName="year">
+                    <br>
+                    <label>percentages</label>
+                    <input type="text" formControlName="percentages">
+                    <br>
+                    <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-info" (click)="add()">Add</button>
+        <div formGroupName="company">
+            <label>name</label>
+            <input type="text" formControlName="name">
+            <br>
+            <label>location</label>
+            <input type="text" formControlName="location">
+            <br>
+            <label>package</label>
+            <input type="text" formControlName="package">
+            <br>
+            <label>offerDate</label>
+            <input type="text" formControlName="offerDate">
+            <br>
+            
+        </div>
+        <label>sourcetype:</label>
+        <input type="radio" name="sourcetype" formControlName="sourcetype" value="Direct">
+        <label>Direct</label>
+        <input type="radio" name="sourcetype" formControlName="sourcetype" value="Reffer">
+        <label>Reffer</label>
+
+        
+        <div *ngIf="studentForm.get('sourcetype')?.value=='Direct'">
+            <label>social Media</label>
+            <input type="text">
+            <br>
+            <label>office</label>
+            <input type="text">
+        </div>
+        <div *ngIf="studentForm.get('sourcetype')?.value=='Reffer'">
+            <label>Refferal Person</label>
+            <input type="text">
+            <br>
+            <label>Refferal Name</label>
+            <input type="text">
+        </div>
+    </form>
+</div>
