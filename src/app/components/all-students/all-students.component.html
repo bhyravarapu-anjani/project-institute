@@ -1,0 +1,59 @@
+<input type="text" name="" id="" [(ngModel)]="term">
+<button class="btn btn-success"(click)="filtering()">Filter</button>
+<select [(ngModel)]="column">
+  <option value="name">name</option>
+  <option value="gender">gender</option>
+  <option value="mobile">mobile</option>
+  <option>email</option>
+  <option>city</option>
+  <option>manadal</option>
+  <option>district</option>
+  <option>state</option>
+
+</select>
+<select [ngModel]="order">
+  <option value="asc">asc</option>
+  <option value="desc">desc</option>
+</select>
+<button class="btn btn-info" (click)='sorting()'>sort</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>image
+          
+        </th>
+        <th>gender</th>
+        <th>mobile</th>
+        <th>batch</th>
+        <th>district</th>
+        <th>state</th>
+        <th>company</th>
+        <th>package</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentTableData">
+        <td>{{student.name}}</td>
+        <td><img src={{student.avatar}} height="40" width="60"/></td>
+        <td>{{student.gender}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.batch}}</td>
+        <td>{{student.district}}</td>
+        <td>{{student.state}}</td>
+        <!-- <td>{{student.company.name}}</td>
+        <td>{{student.company.location}}</td>
+        <td>{{student.company.package}}</td>
+        <td>{{student.company.offerDate}}</td> -->
+       
+      
+      
+      </tr>
+    </tbody>
+  </table>
+
+  <ul class="pagination">
+    <li class="page-item" (click)="page(1)"><a class="page-link" >1</a></li>
+    <li class="page-item" (click)="page(2)"><a class="page-link" >2</a></li>
+    <li class="page-item" (click)="page(3)"><a class="page-link" >3</a></li>
+  </ul>
